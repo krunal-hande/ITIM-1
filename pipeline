@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git url') {
+            steps {
+               git 'https://github.com/krunal-hande/ITIM.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''#!/bin/bash
+                docker build -t krunalhande/itim .
+                docker login -u krunalhande -p passwordof docker
+                docker push krunalhande/itim'''
+            }
+        }
+        stage('Docker Swarm') {
+            steps {
+                sh '''#!/bin/bash
+                docker service rm pushfuck
+                docker service create --name pushfuck --replicas 2 -p 8081:80 krunalhande/itim'''
+            }
+        }
+        
+    }
+   
+}
