@@ -1,0 +1,29 @@
+##################debian 1 #################
+mkdir aayush //in home dir.
+nano aauysh.html
+sudo apt install git -y
+git init 
+ssh-keygen
+cat /home/shuhari/.ssh/id_rsa.pub
+##add key in your rep.
+git config --global user.email "aayushhatwar05@gmail.com"
+git config --global user.name "AayushHatwar"
+git remote add origin git@github.com:krunal-hande/assignment0220.git
+git add .
+git commit -m "commit from aayush"
+git branch -M master 
+git push -u origin master
+
+##################debian 2 #################
+mkdir krunal//in home dir.
+nano krunal.html
+sudo apt install git -y
+git init 
+ssh-keygen
+cat /home/shuhari/.ssh/id_rsa.pub
+##add key in your rep.
+git remote add origin git@github.com:krunal-hande/assignment0220.git
+git add .
+git commit -m "commit from aayush"
+git branch -M master 
+git push -u origin master
