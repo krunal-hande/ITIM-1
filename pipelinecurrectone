@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git'){
+            steps{
+                git 'https://github.com/Nitsp7/nitesh.git'
+            } 
+        }
+        stage('Hello') {
+            steps {
+                sh '''#!/bin/bash
+                docker stop $(docker ps -aq)
+                docker rm $(docker ps -aq)
+                docker rmi $(docker images)
+
+                docker build -t myweb1 .
+                sleep 25s
+                docker run --name nilesh -d -p 80:80 myweb1'''
+            }
+        }
+    }
+}
