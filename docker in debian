@@ -2,7 +2,7 @@ nano docker.sh
 bash docker.sh
 docker run nginx
   sudo chmod 777 /var/run/docker.sock
-  docker run nginx
+  docker run ubuntu
 nano index.html
   docker run --name abcd -d -p 8080:80 nginx
     docker ps -a //to see all images and contener
