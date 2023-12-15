@@ -1,0 +1,15 @@
+############ push ##############
+nano Dockerfile
+nano index.html
+docker run nginx
+sudo chmod 666 /var/run/docker.sock
+docker 
+docker build -t krunalhande/pushpull .
+docker login -u krunalhande -p mh14cy3340
+docker push krunalhande/pushpull
+
+
+############################ pull #################
+install docker in it
+docker pull krunalhande/pushpull
+docker run --name lord -d -p 8080:80 krunalhande/pushpull 
