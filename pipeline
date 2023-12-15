@@ -18,7 +18,7 @@ pipeline {
         stage('Docker Swarm') {
             steps {
                 sh '''#!/bin/bash
-                docker service rm pushfuck
+                docker service rm $(docker ps -aq)
                 docker service create --name pushfuck --replicas 2 -p 8081:80 krunalhande/itim'''
             }
         }
